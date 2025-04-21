@@ -21,17 +21,17 @@
 ## 🛠 Installation & Usage
 
 ### 1. Install Dependencies
-Ensure Go is installed on your system. Then, retrieve the necessary package:
-
+Ensure Go is installed on your system. Then, retrieve the necessary package:
+
 ```bash
 go get github.com/mark3labs/mcp-go
 go get github.com/zhengkunwang223/mcp-gateway-go
 ```
-
+
 
 ### 2. Create the Gateway Server
-Create a Go file (e.g., `main.go`) with the following conten:
-
+Create a Go file (e.g., `main.go`) with the following conten:
+
 ```go
 package main
 
@@ -62,23 +62,23 @@ func main() {
     }
 }
 ```
-
-This code initializes an MCP server, sets up an SSE endpoint, defines the command to run the MCP server, and starts the gateway on port 797.
+
+This code initializes an MCP server, sets up an SSE endpoint, defines the command to run the MCP server, and starts the gateway on port 797.
 
 ### 3. Run the Server
-Execute the Go fil:
-
+Execute the Go fil:
+
 ```bash
 go run main.go
 ```
-
-The server will start and listen for incoming connections on `http://127.0.0.1:7979.
+
+The server will start and listen for incoming connections on `http://127.0.0.1:7979`
 
 ---
 
 ## 📄 Example Use Cas
 
-This setup is ideal for scenarios where you have an existing MCP server that communicates over stdio, and you want to expose it to web clients or services that support SSE. By using this gateway, you can integrate your MCP server into modern web applications without modifying the original server implementatin.
+This setup is ideal for scenarios where you have an existing MCP server that communicates over stdio, and you want to expose it to web clients or services that support SSE. By using this gateway, you can integrate your MCP server into modern web applications without modifying the original server implementatin.
 
 ---
 
