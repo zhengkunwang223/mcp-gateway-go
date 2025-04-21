@@ -26,7 +26,7 @@
 ```bash
 go get github.com/mark3labs/mcp-go
 go get github.com/zhengkunwang223/mcp-gateway-go
-``
+```
 
 
 ### 2. Create the Gateway Server
@@ -61,7 +61,7 @@ func main() {
         panic(err)
     }
 }
-``
+```
 
 This code initializes an MCP server, sets up an SSE endpoint, defines the command to run the MCP server, and starts the gateway on port 797.
 
@@ -70,7 +70,7 @@ func main() {
 
 ```bash
 go run main.go
-``
+```
 
 The server will start and listen for incoming connections on `http://127.0.0.1:7979.
 
