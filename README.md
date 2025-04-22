@@ -1,20 +1,20 @@
 # mcp-gateway-go
 
-`mcp-gateway-go` is a lightweight Go-based gateway that transforms a standard input/output (stdio) Model Context Protocol (MCP) server into a Server-Sent Events (SSE) endpoint. This enables real-time communication with clients such as web browsers or AI agents over HTTP.
+`mcp-gateway-go` is a lightweight Go-based gateway that transforms a standard input/output (stdio) Model Context Protocol (MCP) server into a Server-Sent Events (SSE) endpoint. This enables real-time communication with clients such as web browsers or AI agents over HTTP.
 
 ---
 
 ## 🚀 Overview
-Built upon the [`mcp-go`](https://github.com/mark3labs/mcp-go) library, this project allows you to expose a locally running MCP server via an HTTP+SSE interface. This is particularly useful for integrating MCP servers with web-based clients or services that support SSE
+Built upon the [`mcp-go`](https://github.com/mark3labs/mcp-go) library, this project allows you to expose a locally running MCP server via an HTTP+SSE interface. This is particularly useful for integrating MCP servers with web-based clients or services that support SSE
 
 ---
 
 ## ⚙️ Features
 
-- **Standard Input/Output Support**:Utilizes `mcp-go` to interact with MCP servers over stdio
-- **SSE Support**:Converts MCP server output into SSE format for real-time client communication
-- **Command-Line Tool Integration**:Supports running MCP servers via command-line tools like Node.js, facilitating the use of existing server implementations
-- **Customizable Base URL**:Allows setting a base URL for the SSE endpoint, enabling flexible deployment configurations
+- **Standard Input/Output Support**:Utilizes `mcp-go` to interact with MCP servers over stdio
+- **SSE Support**:Converts MCP server output into SSE format for real-time client communication
+- **Command-Line Tool Integration**:Supports running MCP servers via command-line tools like Node.js, facilitating the use of existing server implementations
+- **Customizable Base URL**:Allows setting a base URL for the SSE endpoint, enabling flexible deployment configurations
 
 ---
 
