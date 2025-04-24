@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"strings"
 	"sync"
 
 	"github.com/mark3labs/mcp-go/mcp"
@@ -169,6 +170,10 @@ func (s *SSEServer) handleMessageToStdio(w http.ResponseWriter, r *http.Request)
 }
 
 func (s *SSEServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	if !s.validateOAuth2Bearer(r) {
+		http.Error(w, "Unauthorized: Invalid or missing Bearer token", http.StatusUnauthorized)
+		return
+	}
 	path := r.URL.Path
 	// Use exact path matching rather than Contains
 	ssePath := s.CompleteSsePath()
@@ -183,4 +188,29 @@ func (s *SSEServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	http.NotFound(w, r)
+}
+
+func (s *SSEServer) validateOAuth2Bearer(r *http.Request) bool {
+	if s.oAuth2Bearer == "" {
+		return true
+	}
+
+	authHeader := r.Header.Get("Authorization")
+	if authHeader == "" {
+		return false
+	}
+
+	parts := strings.Split(authHeader, " ")
+	if len(parts) != 2 || strings.ToLower(parts[0]) != "bearer" {
+		return false
+	}
+
+	token := parts[1]
+	return token == s.oAuth2Bearer
+}
+
+func WithOAuth2Bearer(token string) SSEOption {
+	return func(s *SSEServer) {
+		s.oAuth2Bearer = token
+	}
 }

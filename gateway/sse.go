@@ -72,6 +72,7 @@ type SSEServer struct {
 	mu sync.RWMutex
 
 	conn 			*connection
+	oAuth2Bearer  	string
 }
 
 // SSEOption defines a function type for configuring SSEServer
